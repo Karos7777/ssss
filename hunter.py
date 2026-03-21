@@ -28,39 +28,40 @@ DAYS_AHEAD = 7
 bot = telebot.TeleBot(TG_BOT_TOKEN)
 
 # --- БАЗА КООРДИНАТ ДЛЯ КАРТ ---
-# ВАЖНО: Ключ в словаре должен ТОЧНО совпадать с названием точки, которое выдает сервер!
-# Замени нули на реальные координаты широты (lat) и долготы (lon)
 LOCATIONS = {
-    'loc_1': {'title': 'Next new', 'lat': 41.297773, 'lon': 69.249518, 'address': 'Ташкент'},
-    'loc_2': {'title': 'Ecopark', 'lat': 41.310891, 'lon': 69.295064, 'address': 'Ташкент'},
-    'loc_3': {'title': 'Хамза', 'lat': 41.277050, 'lon': 69.309304, 'address': 'Ташкент'},
-    'loc_4': {'title': 'Компас', 'lat': 41.239107, 'lon': 69.328735, 'address': 'Ташкент'},
-    'loc_5': {'title': 'Evos Vodnik', 'lat': 41.254433, 'lon': 69.373943, 'address': 'Ташкент'},
-    'loc_6': {'title': 'Турон new', 'lat': 41.210690, 'lon': 69.234009, 'address': 'Ташкент'},
-    'loc_7': {'title': 'Сергели new', 'lat': 41.220839, 'lon': 69.208723, 'address': 'Ташкент'},
-    'loc_8': {'title': 'Северный вокзал new', 'lat': 41.298205, 'lon': 69.280666, 'address': 'Ташкент'},
-    'loc_9': {'title': 'Кушбеги new', 'lat': 41.267813, 'lon': 69.245708, 'address': 'Ташкент'},
-    'loc_10': {'title': 'Айбек new', 'lat': 41.295091, 'lon': 69.268025, 'address': 'Ташкент'},
-    'loc_11': {'title': 'Мукими new', 'lat': 41.283513, 'lon': 69.250288, 'address': 'Ташкент'},
-    'loc_12': {'title': 'Чиланзар new', 'lat': 41.274358, 'lon': 69.204907, 'address': 'Ташкент'},
-    'loc_13': {'title': 'Эшон new', 'lat': 41.279378, 'lon': 69.197978, 'address': 'Ташкент'},
-    'loc_14': {'title': '26-квартал Чиланзар new', 'lat': 41.278429, 'lon': 69.175985, 'address': 'Ташкент'},
-    'loc_15': {'title': 'Новза new', 'lat': 41.293438, 'lon': 69.212942, 'address': 'Ташкент'},
-    'loc_16': {'title': 'Бешкайрач new', 'lat': 41.308305, 'lon': 69.166052, 'address': 'Ташкент'},
-    'loc_17': {'title': 'Кукча', 'lat': 41.322375, 'lon': 69.214996, 'address': 'Ташкент'},
-    'loc_18': {'title': 'Цирк new', 'lat': 41.324182, 'lon': 69.242967, 'address': 'Ташкент'},
-    'loc_19': {'title': 'Беруни new', 'lat': 41.345170, 'lon': 69.206932, 'address': 'Ташкент'},
-    'loc_20': {'title': 'Фараби new', 'lat': 41.349068, 'lon': 69.178269, 'address': 'Ташкент'},
-    'loc_21': {'title': 'Каракамыш new', 'lat': 41.364242, 'lon': 69.203741, 'address': 'Ташкент'},
-    'loc_22': {'title': 'Алайский рынок new', 'lat': 41.320219, 'lon': 69.281739, 'address': 'Ташкент'},
-    'loc_23': {'title': 'Малика new', 'lat': 41.338937, 'lon': 69.271314, 'address': 'Ташкент'},
-    'loc_24': {'title': 'Яшнабад new', 'lat': 41.291723, 'lon': 69.340694, 'address': 'Ташкент'},
-    'loc_25': {'title': 'Паркентский new', 'lat': 41.315182, 'lon': 69.328165, 'address': 'Ташкент'},
-    'loc_26': {'title': 'Бий new', 'lat': 41.326520, 'lon': 69.329992, 'address': 'Ташкент'},
-    'loc_27': {'title': 'Корасу new', 'lat': 41.334586, 'lon': 69.370051, 'address': 'Ташкент'},
-    'loc_28': {'title': 'Экобазар new', 'lat': 41.353421, 'lon': 69.351013, 'address': 'Ташкент'},
-    'loc_29': {'title': 'Юнусабад', 'lat': 41.365258, 'lon': 69.295216, 'address': 'Ташкент'},
-    'loc_30': {'title': 'Туркестан new', 'lat': 41.373312, 'lon': 69.308444, 'address': 'Ташкент'}
+    # ✅ ПРОКОВЕРЕННЫЕ ТОЧКИ (Названия точно как на сервере)
+    'Turkiston': {'id': 'loc_30', 'lat': 41.373312, 'lon': 69.308444, 'address': 'Туркестан'},
+    "Buyuk Ipak Yo'li": {'id': 'loc_26', 'lat': 41.326520, 'lon': 69.329992, 'address': 'метро Буюк Ипак Йули'},
+    'EcoPark': {'id': 'loc_2', 'lat': 41.310891, 'lon': 69.295064, 'address': 'Экопарк'},
+    'Novza': {'id': 'loc_15', 'lat': 41.293438, 'lon': 69.212942, 'address': 'метро Новза'},
+    'Compass': {'id': 'loc_4', 'lat': 41.239107, 'lon': 69.328735, 'address': 'ТРЦ Компас'},
+    'EcoBozor': {'id': 'loc_28', 'lat': 41.353421, 'lon': 69.351013, 'address': 'Экобазар'},
+    'Yunusobod': {'id': 'loc_29', 'lat': 41.365258, 'lon': 69.295216, 'address': 'Юнусабад'},
+    '26 mavze Chilonzor': {'id': 'loc_14', 'lat': 41.278429, 'lon': 69.175985, 'address': '26-й квартал Чиланзар'},
+    'Next': {'id': 'loc_1', 'lat': 41.297773, 'lon': 69.249518, 'address': 'ТРЦ Next'},
+    'Parkent bozori': {'id': 'loc_25', 'lat': 41.315182, 'lon': 69.328165, 'address': 'Паркентский рынок'},
+    'Malika': {'id': 'loc_23', 'lat': 41.338937, 'lon': 69.271314, 'address': 'ярмарка Малика'},
+    'Beruniy': {'id': 'loc_19', 'lat': 41.345170, 'lon': 69.206932, 'address': 'метро Беруни'},
+    'Qushbegi': {'id': 'loc_9', 'lat': 41.267813, 'lon': 69.245708, 'address': 'массив Кушбеги'},
+    'Shimoliy vokzal': {'id': 'loc_8', 'lat': 41.298205, 'lon': 69.280666, 'address': 'Северный вокзал'},
+    'Oloy bozori': {'id': 'loc_22', 'lat': 41.320219, 'lon': 69.281739, 'address': 'Алайский рынок'},
+
+    # ⏳ ТОЧКИ, КОТОРЫЕ ЖДУТ ПЕРЕИМЕНОВАНИЯ
+    'Хамза': {'id': 'loc_3', 'lat': 41.277050, 'lon': 69.309304, 'address': 'Ташкент'},
+    'Evos Vodnik': {'id': 'loc_5', 'lat': 41.254433, 'lon': 69.373943, 'address': 'Ташкент'},
+    'Турон new': {'id': 'loc_6', 'lat': 41.210690, 'lon': 69.234009, 'address': 'Ташкент'},
+    'Сергели new': {'id': 'loc_7', 'lat': 41.220839, 'lon': 69.208723, 'address': 'Ташкент'},
+    'Айбек new': {'id': 'loc_10', 'lat': 41.295091, 'lon': 69.268025, 'address': 'Ташкент'},
+    'Мукими new': {'id': 'loc_11', 'lat': 41.283513, 'lon': 69.250288, 'address': 'Ташкент'},
+    'Чиланзар new': {'id': 'loc_12', 'lat': 41.274358, 'lon': 69.204907, 'address': 'Ташкент'},
+    'Эшон new': {'id': 'loc_13', 'lat': 41.279378, 'lon': 69.197978, 'address': 'Ташкент'},
+    'Бешкайрач new': {'id': 'loc_16', 'lat': 41.308305, 'lon': 69.166052, 'address': 'Ташкент'},
+    'Кукча': {'id': 'loc_17', 'lat': 41.322375, 'lon': 69.214996, 'address': 'Ташкент'},
+    'Цирк new': {'id': 'loc_18', 'lat': 41.324182, 'lon': 69.242967, 'address': 'Ташкент'},
+    'Фараби new': {'id': 'loc_20', 'lat': 41.349068, 'lon': 69.178269, 'address': 'Ташкент'},
+    'Каракамыш new': {'id': 'loc_21', 'lat': 41.364242, 'lon': 69.203741, 'address': 'Ташкент'},
+    'Яшнабад new': {'id': 'loc_24', 'lat': 41.291723, 'lon': 69.340694, 'address': 'Ташкент'},
+    'Корасу new': {'id': 'loc_27', 'lat': 41.334586, 'lon': 69.370051, 'address': 'Ташкент'}
 }
 
 http = requests.Session()
@@ -76,10 +77,9 @@ HEADERS = {
 seen_alerts = set()
 last_cleared_day = None
 
-# ОБНОВЛЕННАЯ функция отправки сообщений (теперь через telebot)
+# Функция отправки сообщений (через telebot)
 def send_tg_message(text, markup=None):
     try:
-        # Отправляем сообщение, и если есть клавиатура (markup), прикрепляем её
         bot.send_message(chat_id=TG_CHAT_ID, text=text, parse_mode="Markdown", reply_markup=markup)
     except Exception as e:
         print(f"Ошибка в Telegram: {e}")
@@ -102,22 +102,26 @@ def check_date(date_str, is_today):
                 
                 start = start_raw.split("T")[-1][:5] if "T" in start_raw else "..."
                 end = end_raw.split("T")[-1][:5] if "T" in end_raw else "..."
-                point = item.get("startingPoint", {}).get("title", "Неизвестно")
+                
+                # ВАЖНО: Добавлен .strip() для удаления невидимых пробелов
+                point = item.get("startingPoint", {}).get("title", "Неизвестно").strip()
                 
                 shift_signature = f"{date_str}_{point}_{start}_{end}"
                 is_bonus = item.get("bonuses") or (item.get("bonusIDs") and len(item.get("bonusIDs")) > 0)
                 
                 # --- ГЕНЕРАЦИЯ КНОПКИ С КАРТОЙ ---
                 markup = None
-                # Проверяем, есть ли эта точка в нашей базе LOCATIONS
                 if point in LOCATIONS:
                     loc_data = LOCATIONS[point]
                     markup = InlineKeyboardMarkup()
                     btn = InlineKeyboardButton(
                         text="📍 Показать на карте", 
-                        callback_data=f"map_{loc_data['id']}" # Зашиваем короткий ID в кнопку
+                        callback_data=f"map_{loc_data['id']}" 
                     )
                     markup.add(btn)
+                else:
+                    # ПОМОЩНИК: Предупреждение в Render
+                    print(f"⚠️ АЛАРМ! Точки '{point}' нет в базе данных. Скопируй это название и добавь в код!")
                 
                 if is_bonus:
                     alert_key = f"bonus_{shift_signature}"
@@ -125,7 +129,7 @@ def check_date(date_str, is_today):
                         seen_alerts.add(alert_key)
                         msg = f"💰 *БОНУС НАЙДЕН!*\n📅 *Дата:* {date_str}\n📍 *Точка:* {point}\n⏰ *Время:* {start} - {end}"
                         print(f"!!! НАЙДЕН БОНУС: {point} {start}-{end}")
-                        send_tg_message(msg, markup) # Отправляем с кнопкой
+                        send_tg_message(msg, markup) 
                 
                 if is_today and not is_bonus:
                     alert_key = f"today_{shift_signature}"
@@ -133,7 +137,7 @@ def check_date(date_str, is_today):
                         seen_alerts.add(alert_key)
                         msg = f"🆕 *Появилась смена на СЕГОДНЯ!*\n📍 *Точка:* {point}\n⏰ *Время:* {start} - {end}\n_Скорее забирай!_"
                         print(f"!!! НОВАЯ СМЕНА СЕГОДНЯ: {point} {start}-{end}")
-                        send_tg_message(msg, markup) # Отправляем с кнопкой
+                        send_tg_message(msg, markup) 
                         
             return True 
             
@@ -184,10 +188,8 @@ def main_logic():
 # --- ОБРАБОТЧИК КНОПОК ДЛЯ КАРТ ---
 @bot.callback_query_handler(func=lambda call: call.data.startswith('map_'))
 def handle_map_button(call):
-    # Достаем ID (например, 'loc_1')
     loc_id = call.data.replace('map_', '')
     
-    # Ищем эту точку в нашей базе
     found_point = None
     for point_name, data in LOCATIONS.items():
         if data['id'] == loc_id:
@@ -217,6 +219,6 @@ if __name__ == "__main__":
     # 2. Запускаем мониторинг слотов в отдельном фоне
     threading.Thread(target=main_logic, daemon=True).start()
     
-    # 3. Запускаем бота-слушателя в главном потоке (чтобы код не закрывался)
+    # 3. Запускаем бота-слушателя в главном потоке
     print("🤖 Бот Telegram запущен и ждет нажатий на кнопки!")
     bot.polling(none_stop=True)
